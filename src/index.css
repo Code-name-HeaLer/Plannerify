@@ -18,16 +18,16 @@ body {
 
 @layer components {
   .input-field {
-    @apply w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply w-full p-2 rounded-lg border border-gray-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary;
   }
 
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300;
+    @apply bg-white dark:bg-neutral-900 rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300;
   }
 
   /* Distinct entry card styling */
   .entry-card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 pr-5 transition-all duration-300 border border-gray-200 dark:border-gray-700 relative overflow-hidden;
+    @apply bg-white dark:bg-neutral-900 rounded-xl shadow-md p-4 pr-5 transition-all duration-300 border border-gray-200 dark:border-neutral-800 relative overflow-hidden;
   }
   .entry-card:hover {
     @apply shadow-xl translate-y-[-2px];
@@ -38,7 +38,17 @@ body {
 
   /* De-emphasized stat card styling */
   .stat-card {
-    @apply rounded-xl p-4 border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/40 shadow-sm hover:shadow-md transition-shadow;
+    @apply rounded-xl p-4 border border-gray-200 dark:border-neutral-800 bg-gray-50 dark:bg-neutral-900/40 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  /* Sidebar elevation: dark shadow in light mode, light shadow in dark mode */
+  .sidebar-elevated {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+  .dark .sidebar-elevated {
+    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
+      0 4px 6px -4px rgba(255, 255, 255, 0.08);
   }
 
   .section-title {

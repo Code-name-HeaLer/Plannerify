@@ -21,7 +21,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen ${darkMode ? 'dark bg-neutral-950' : 'bg-gray-50'}`}>
       <Router>
         <Routes>
           <Route path="/" element={<Home darkMode={darkMode} setDarkMode={setDarkMode} />} />

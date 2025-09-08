@@ -54,7 +54,27 @@ const Planner = ({ darkMode, setDarkMode }) => {
     });
 
     useEffect(() => {
-        if (location.state?.entry) {
+        // If explicitly creating a new entry, initialize a fresh form and skip localStorage load
+        if (location.state?.mode === 'new') {
+            setFormData({
+                date: format(new Date(), 'yyyy-MM-dd'),
+                weather: 'sunny',
+                mood: 'happy',
+                todos: [{ text: '', completed: false }],
+                goals: '',
+                reminders: '',
+                breakfast: '',
+                lunch: '',
+                dinner: '',
+                snacks: '',
+                waterIntake: 0,
+                exercise: { minutes: '', steps: '' },
+                gratitude: '',
+                money: { income: '', expense: '', from: '', for: '' },
+                notes: '',
+                tomorrow: ''
+            });
+        } else if (location.state?.entry) {
             setFormData(location.state.entry);
         } else {
             const savedData = localStorage.getItem(`planner-${formData.date}`);
