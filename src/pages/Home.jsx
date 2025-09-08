@@ -66,7 +66,9 @@ const Home = ({ darkMode, setDarkMode }) => {
                 <aside className={`fixed md:static inset-y-0 left-0 z-30 w-72 h-screen md:h-auto transform md:transform-none transition-transform duration-200 ease-in-out bg-white dark:bg-neutral-950 border-r border-gray-200 dark:border-neutral-900 sidebar-elevated ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
                     <div className="flex items-center justify-between px-4 py-4 md:py-6 border-b border-gray-200 dark:border-neutral-900">
                         <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-primary/15 dark:bg-primary/20 flex items-center justify-center text-primary font-bold">DP</div>
+                            <div className="w-8 h-8 rounded-lg bg-primary/15 dark:bg-primary/20 flex items-center justify-center text-primary">
+                                <CalendarDays className="w-5 h-5" />
+                            </div>
                             <div className="font-semibold">Daily Planner</div>
                         </div>
                         <button onClick={() => setSidebarOpen(false)} className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
