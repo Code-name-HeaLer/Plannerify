@@ -34,6 +34,16 @@ const Home = ({ darkMode, setDarkMode }) => {
         entry.mood.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const moodClasses = (mood) => (
+        mood === 'happy' ? 'bg-green-500/15 dark:bg-green-500/10 border-green-500/20' :
+            mood === 'sad' ? 'bg-blue-500/15 dark:bg-blue-500/10 border-blue-500/20' :
+                mood === 'neutral' ? 'bg-gray-400/15 dark:bg-gray-400/10 border-gray-400/20' :
+                    mood === 'excited' ? 'bg-purple-500/15 dark:bg-purple-500/10 border-purple-500/20' :
+                        mood === 'tired' ? 'bg-amber-500/15 dark:bg-amber-500/10 border-amber-500/20' :
+                            mood === 'angry' ? 'bg-red-500/15 dark:bg-red-500/10 border-red-500/20' :
+                                'bg-primary/15 dark:bg-primary/10 border-primary/20'
+    );
+
     const getMoodEmoji = (mood) => {
         const moods = {
             'happy': '😊',
@@ -148,7 +158,7 @@ const Home = ({ darkMode, setDarkMode }) => {
                         </div>
 
                         {/* Quick stats */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                             <div className="stat-card">
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -222,19 +232,8 @@ const Home = ({ darkMode, setDarkMode }) => {
                                     <div
                                         key={index}
                                         onClick={() => navigate('/planner', { state: { entry } })}
-                                        className="entry-card cursor-pointer"
+                                        className={`entry-card cursor-pointer backdrop-blur-sm ${moodClasses(entry.mood)}`}
                                     >
-                                        {/* Mood accent bar */}
-                                        <span
-                                            className={`entry-accent ${entry.mood === 'happy' ? 'bg-green-500' :
-                                                entry.mood === 'sad' ? 'bg-blue-500' :
-                                                    entry.mood === 'neutral' ? 'bg-gray-400' :
-                                                        entry.mood === 'excited' ? 'bg-purple-500' :
-                                                            entry.mood === 'tired' ? 'bg-amber-500' :
-                                                                entry.mood === 'angry' ? 'bg-red-500' :
-                                                                    'bg-primary'
-                                                }`}
-                                        />
                                         <div className="flex justify-between items-start">
                                             <div>
                                                 <h3 className="text-lg font-semibold mb-2">{entry.date}</h3>
